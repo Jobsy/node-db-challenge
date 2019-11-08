@@ -5,12 +5,16 @@ const db = knex(knexConfig.development);
 
 module.exports = {
     find,
-    // findById,
+    findById,
     // insert,
     // update,
     // remove,
   };
   
   function find() {
-    return db('projects');
+    return db("projects");
+  }
+
+  function findById(id) {
+    return db("projects").where({ id: Number(id) });
   }
