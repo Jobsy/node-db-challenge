@@ -7,6 +7,7 @@ module.exports = {
     find,
     findResources,
     findById,
+    findResourceById,
     insert,
     // update,
     // remove,
