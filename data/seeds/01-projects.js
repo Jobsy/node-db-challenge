@@ -1,4 +1,4 @@
-exports.seed = function(knex, Promise) {
+exports.seed = function(knex) {
   return knex('projects').insert([
         {project_name: 'cake', project_description: 'making cake', complete: ''},
         {project_name: 'cake2222', project_description: 'making cake22222', complete: ''},
