@@ -60,15 +60,12 @@ module.exports = {
       .then(ids => ({ id: ids[0] }));
   }
 
-//   select * from 
-// projects
-// join resources
-
-// where projects.id = 1
+////stretch
 function findAllByProject(id) {
     return db.select("*")
         .from("projects")
-        .join("resources")
-        .join("tasks")
+        .join("resources", "projects.id", "=", "resources.id")
+        .leftJoin("tasks")
         .where("projects.id", "=", `${id}`)
+        // .groupBy("projects.project_name")
 }
