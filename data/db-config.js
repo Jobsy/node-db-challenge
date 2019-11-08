@@ -1,16 +1,6 @@
-const knex = require('knex');
-const knexConfig = require('../knexfile');
-const db = knex(knexConfig.development);
 
+const knex = require("knex");
 
-module.exports = {
-    find,
-    // findById,
-    // insert,
-    // update,
-    // remove,
-  };
-  
-  function find() {
-    return db('cars');
-  }
+const config = require("../data/db-config");
+
+module.exports = knex(config[process.env.NODE_ENV])
