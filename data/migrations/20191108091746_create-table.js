@@ -8,8 +8,7 @@ exports.up = function (knex) {
                 .notNullable()
             table.string("project_description", 128)
                 .unique()
-            table.string("complete")
-                .boolean(false)
+                table.boolean('complete').defaultTo(0)
         })
         .createTable("resources", table => {
             table.increments()
@@ -28,8 +27,7 @@ exports.up = function (knex) {
                 .unique()
                 .notNullable()
             table.string("task_info", 128)
-            table.string("complete")
-                .boolean(false)
+            table.boolean('complete').defaultTo(0)
             table.integer("project_id")
                 .unsigned()
                 .notNullable()
@@ -42,6 +40,7 @@ exports.up = function (knex) {
                 .notNullable()
                 .references("id")
                 .inTable("resources")
+
             // .onUpdate("CASCADE")
             // .onDelete("CASCADE")
             // table.primary(["recipe_id", "ingredient_id"])
