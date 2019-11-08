@@ -20,5 +20,8 @@
   "dependencies": {
     "knex": "^0.20.1",
     "sqlite": "^3.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0"
   }
 }
