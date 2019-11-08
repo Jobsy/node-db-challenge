@@ -55,4 +55,23 @@ router.post("/", (req, res) => {
 
 
 
+////strech
+router.get('/:id/resources/tasks', (req, res) => {
+  const { id } = req.params;
+ 
+  dB.findAllByProject(id)
+  .then(resourcesTasks => {
+    if (resourcesTasks.length) {
+      res.json(resourcesTasks);
+    } else {
+      res.status(404).json({ message: "Could not find resources and tasks for given project"})
+    }
+  })
+  .catch(err => {
+    res.status(500).json({ message: "Failed to get project's info" });
+  });
+});
+
+
+
 module.exports = router;
