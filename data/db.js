@@ -6,6 +6,7 @@ const db = knex(knexConfig.development);
 module.exports = {
     find,
     findResources,
+    findTasks,
     findById,
     findResourceById,
     insert,
@@ -20,6 +21,10 @@ module.exports = {
 
   function findResources() {
     return db("resources");
+  }
+
+  function findTasks() {
+    return db("tasks");
   }
 
   function findById(id) {
