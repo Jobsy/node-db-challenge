@@ -31,4 +31,21 @@ router.get("/:id", (req, res) => {
         })
 })
 
+router.post("/", (req, res) => {
+    const task = req.body;
+    const { task_name, task_description} = req.body;
+    const { url } = req;
+    if (!task_name) {
+        res.status(400).json({ errorMessage: "Please provide atleast task_name, and task_description for the task." })
+    }
+    dB.insertTask(task)
+        .then(() => {
+            res.status(201).json({ taskInfo: task, url: url, operation: "POST" })
+        })
+        .catch((err) => {
+            res.status(500).json({ error: "There was an error while saving the task to the database" + err})
+        })
+});
+
+
 module.exports = router;
