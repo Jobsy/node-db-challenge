@@ -24,6 +24,10 @@ module.exports = {
     return db("projects").where({ id: Number(id) });
   }
 
+  function findResourceById(id) {
+    return db("resources").where({ id: Number(id) });
+  }
+
   function insert(car) {
     return db("projects")
       .insert(car)
