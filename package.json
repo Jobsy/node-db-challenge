@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Jobsy/node-db-challenge/issues"
   },
-  "homepage": "https://github.com/Jobsy/node-db-challenge#readme"
+  "homepage": "https://github.com/Jobsy/node-db-challenge#readme",
+  "dependencies": {
+    "knex": "^0.20.1",
+    "sqlite": "^3.0.3"
+  }
 }
