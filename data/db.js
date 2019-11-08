@@ -12,5 +12,5 @@ module.exports = {
   };
   
   function find() {
-    return db('cars');
+    return db('projects');
   }
