@@ -9,6 +9,7 @@ module.exports = {
     findById,
     findResourceById,
     insert,
+    insertResource,
     // update,
     // remove,
   };
@@ -29,8 +30,14 @@ module.exports = {
     return db("resources").where({ id: Number(id) });
   }
 
-  function insert(car) {
+  function insert(projects) {
     return db("projects")
-      .insert(car)
+      .insert(projects)
+      .then(ids => ({ id: ids[0] }));
+  }
+
+  function insertResource(resources) {
+    return db("resources")
+      .insert(resources)
       .then(ids => ({ id: ids[0] }));
   }

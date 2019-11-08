@@ -38,7 +38,7 @@ router.post("/", (req, res) => {
     if (!resource_name) {
         res.status(400).json({ errorMessage: "Please provide atleast resource_name, and resource_description for the resource." })
     }
-    dB.insert(resource)
+    dB.insertResource(resource)
         .then(() => {
             res.status(201).json({ resourceInfo: resource, url: url, operation: "POST" })
         })
