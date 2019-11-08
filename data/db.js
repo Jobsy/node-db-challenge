@@ -12,6 +12,7 @@ module.exports = {
     findTaskById,
     insert,
     insertResource,
+    insertTask,
     // update,
     // remove,
   };
@@ -37,7 +38,7 @@ module.exports = {
   }
 
   function findTaskById(id) {
-    return db("resources").where({ id: Number(id) });
+    return db("tasks").where({ id: Number(id) });
   }
 
 
@@ -52,3 +53,10 @@ module.exports = {
       .insert(resources)
       .then(ids => ({ id: ids[0] }));
   }
+
+  function insertTask(tasks) {
+    return db("tasks")
+      .insert(tasks)
+      .then(ids => ({ id: ids[0] }));
+  }
+
