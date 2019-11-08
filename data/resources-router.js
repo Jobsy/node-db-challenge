@@ -31,6 +31,23 @@ router.get("/:id", (req, res) => {
         })
 })
 
+router.post("/", (req, res) => {
+    const resource = req.body;
+    const { resource_name, resource_description} = req.body;
+    const { url } = req;
+    if (!resource_name) {
+        res.status(400).json({ errorMessage: "Please provide atleast resource_name, and resource_description for the resource." })
+    }
+    dB.insert(resource)
+        .then(() => {
+            res.status(201).json({ resourceInfo: resource, url: url, operation: "POST" })
+        })
+        .catch((err) => {
+            res.status(500).json({ error: "There was an error while saving the resource to the database" + err})
+        })
+});
+
+
 
 
 
