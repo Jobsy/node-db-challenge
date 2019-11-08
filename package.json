@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Jobsy/node-db-challenge#readme",
   "dependencies": {
     "knex": "^0.20.1",
+    "knex-cleaner": "^1.3.0",
     "sqlite": "^3.0.3"
   },
   "devDependencies": {
